@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 2020_10_16_111217) do
     t.string "icon"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["icon"], name: "index_groups_on_icon"
+    t.index ["name"], name: "index_groups_on_name"
   end
 
   create_table "users", force: :cascade do |t|

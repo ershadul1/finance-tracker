@@ -5,5 +5,7 @@ class CreateGroups < ActiveRecord::Migration[6.0]
       t.string :icon
       t.timestamps
     end
+    add_index :groups, :name
+    add_index :groups, :icon
   end
 end
