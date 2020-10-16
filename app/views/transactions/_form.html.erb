@@ -1,0 +1,25 @@
+<%= form_with(model: transaction, local: true) do |form| %>
+  <% if transaction.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(transaction.errors.count, "error") %> prohibited this transaction from being saved:</h2>
+
+      <ul>
+        <% transaction.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+  Name:<br> 
+<%= form.text_field :name %><br>
+<br>Amount: <br> 
+<%= form.number_field :amount, :step => "0.01"%><br>
+<br>  
+<br>Group: <br>
+<%= form.collection_select :group_id, Group.order(:name),:id,:name, include_blank: true %> 
+<br>  <br>
+    <%= form.submit %>
+  </div>
+<% end %>
