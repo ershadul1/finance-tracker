@@ -1,11 +1,10 @@
 class TransactionsController < ApplicationController
   before_action :authenticate_user!
-  
+
   def index
     @transactions = Transaction.all
   end
 
-  
   def show
     @transaction = Transaction.find(params[:id])
   end
@@ -18,7 +17,6 @@ class TransactionsController < ApplicationController
     @transaction = Transaction.find(params[:id])
   end
 
-  
   def create
     @transaction = current_user.transactions.build(transaction_params)
 
@@ -56,7 +54,8 @@ class TransactionsController < ApplicationController
   end
 
   private
-    def transaction_params
-      params.require(:transaction).permit(:name, :amount, :group_id)
-    end
+
+  def transaction_params
+    params.require(:transaction).permit(:name, :amount, :group_id)
+  end
 end
