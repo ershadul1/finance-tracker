@@ -19,6 +19,12 @@ class TransactionsController < ApplicationController
 
   def create
     @transaction = current_user.transactions.build(transaction_params)
+    @transaction.save
+    @assigned_groups = params[:transaction][:group_ids]
+
+    @assigned_groups.each do |group|
+      @transaction.transaction_grouper << Group.find(group)
+    end
 
     respond_to do |format|
       if @transaction.save
@@ -60,6 +66,6 @@ class TransactionsController < ApplicationController
   private
 
   def transaction_params
-    params.require(:transaction).permit(:name, :amount, :group_id)
+    params.require(:transaction).permit(:name, :amount)
   end
 end
