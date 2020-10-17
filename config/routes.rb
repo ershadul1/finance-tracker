@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :transactions
   resources :groups
   resources :users
+  get "external" => 'transactions#external'
 end

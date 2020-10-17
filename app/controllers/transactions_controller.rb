@@ -2,7 +2,7 @@ class TransactionsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @transactions = Transaction.all
+    @transactions = current_user.transactions
   end
 
   def show
@@ -51,6 +51,10 @@ class TransactionsController < ApplicationController
       format.html { redirect_to transactions_url, notice: 'Transaction was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def external
+    @transaction = current_user.transactions.where(group_id: nil)
   end
 
   private
