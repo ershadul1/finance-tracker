@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_17_071907) do
+ActiveRecord::Schema.define(version: 2020_10_17_153754) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,11 +38,18 @@ ActiveRecord::Schema.define(version: 2020_10_17_071907) do
 
   create_table "groups", force: :cascade do |t|
     t.string "name"
-    t.string "icon"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["icon"], name: "index_groups_on_icon"
     t.index ["name"], name: "index_groups_on_name"
+  end
+
+  create_table "groups_transactions", force: :cascade do |t|
+    t.integer "grouped_transaction_id"
+    t.integer "transaction_grouper_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["grouped_transaction_id"], name: "index_groups_transactions_on_grouped_transaction_id"
+    t.index ["transaction_grouper_id"], name: "index_groups_transactions_on_transaction_grouper_id"
   end
 
   create_table "transactions", force: :cascade do |t|
@@ -50,13 +57,11 @@ ActiveRecord::Schema.define(version: 2020_10_17_071907) do
     t.string "name"
     t.decimal "amount"
     t.boolean "earning", default: false
-    t.integer "group_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["amount"], name: "index_transactions_on_amount"
     t.index ["author_id"], name: "index_transactions_on_author_id"
     t.index ["earning"], name: "index_transactions_on_earning"
-    t.index ["group_id"], name: "index_transactions_on_group_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -66,7 +71,6 @@ ActiveRecord::Schema.define(version: 2020_10_17_071907) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "name"
-    t.string "gravatar_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
