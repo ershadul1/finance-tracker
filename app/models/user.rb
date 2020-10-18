@@ -7,6 +7,7 @@ class User < ApplicationRecord
 
   after_commit :add_default_avatar, on: %i[create update]
 
+  validates :name, presence: true, length: { in: 2..30 }
   validates :avatar, content_type: ['image/png', 'image/jpg', 'image/jpeg'],
                       size: { less_than: 5.megabytes, message: 'is not given between size(5MB max)' }
 
