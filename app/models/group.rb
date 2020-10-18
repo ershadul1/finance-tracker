@@ -7,6 +7,9 @@ class Group < ApplicationRecord
 
   after_commit :add_default_picture, on: %i[create update]
 
+  validates :picture, content_type: ['image/png', 'image/jpg', 'image/jpeg'],
+                      size: { less_than: 5.megabytes, message: 'is not given between size(5MB max)' }
+
   private
 
   def add_default_picture
