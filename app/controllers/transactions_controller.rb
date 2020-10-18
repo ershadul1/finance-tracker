@@ -2,7 +2,7 @@ class TransactionsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @transactions = current_user.transactions.includes(transaction_grouper: {picture_attachment: :blob})
+    @transactions = current_user.transactions.includes(transaction_grouper: { picture_attachment: :blob })
   end
 
   def show
@@ -22,10 +22,8 @@ class TransactionsController < ApplicationController
     @transaction.save
     @assigned_groups = params[:transaction][:group_ids]
 
-    unless @assigned_groups.nil?
-      @assigned_groups.each do |group|
-        @transaction.transaction_grouper << Group.find(group)
-      end
+    @assigned_groups&.each do |group|
+      @transaction.transaction_grouper << Group.find(group)
     end
 
     respond_to do |format|
@@ -44,10 +42,8 @@ class TransactionsController < ApplicationController
 
     @assigned_groups = params[:transaction][:group_ids]
 
-    unless @assigned_groups.nil?
-      @assigned_groups.each do |group|
-        @transaction.transaction_grouper << Group.find(group)
-      end
+    @assigned_groups&.each do |group|
+      @transaction.transaction_grouper << Group.find(group)
     end
     respond_to do |format|
       if @transaction.update(transaction_params)
