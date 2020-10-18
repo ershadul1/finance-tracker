@@ -1,6 +1,6 @@
 class Transaction < ApplicationRecord
   validates :name, presence: true, length: { in: 2..50 }
-  validates :amount, presence: true
+  validates :amount, presence: true, numericality: { less_than: 1000000000 } 
   belongs_to :author, class_name: 'User'
 
   has_many :groups_transactions, foreign_key: :grouped_transaction_id
