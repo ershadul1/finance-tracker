@@ -22,6 +22,16 @@
     </div>
   </div>
 
+  <p class="total">Assigned Groups:</p>
+
+  <div class="d-flex flex-column transaction">
+    <% @transaction.transaction_grouper.each do |group| %>
+      <div>
+        <b><%= group.name %>
+      </div>
+    <% end %>
+  </div>
+
   <div class="new-item">
     <%= link_to 'EDIT TRANSACTION', edit_transaction_path(@transaction), class: "new-item-btn"%>
   </div>
