@@ -139,8 +139,8 @@ body {
 }
 
 .group-image {
-  width: 15vw;
-  height: 15vw;
+  width: 17vw;
+  height: 17vw;
 }
 
 .date {
@@ -173,8 +173,8 @@ body {
 }
 
 .delete-item {
-  position: sticky;
-  bottom: 0;
+  /* position: sticky;
+  bottom: 0; */
   background: linear-gradient(0deg, red, rgb(230, 81, 81));
   width: 100%;
   padding: 7px;
