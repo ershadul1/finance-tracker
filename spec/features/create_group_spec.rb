@@ -18,7 +18,7 @@ RSpec.describe 'Creating a group process', type: :feature do
     fill_in 'group[name]', with: 'FOOD'
     attach_file('group_picture', 'spec/files/images/ungrouped.png')
     click_button 'Create Group'
-    sleep(3)
+
     expect(page).to have_content('FOOD')
   end
 end

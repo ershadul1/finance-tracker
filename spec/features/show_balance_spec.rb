@@ -16,6 +16,5 @@ RSpec.describe 'Creating a transaction process', type: :feature do
     expect(current_path).to eql(root_path)
 
     expect(page).to have_content('1,600')
-    sleep(3)
   end
 end
