@@ -1,5 +1,11 @@
-<h1>New Group</h1>
+<section>
+  <div class="nav-container">
+    <nav class="nav-bar">
+      <%= link_to 'Profile', user_path(current_user.id), class: 'nav-link'%>
+      <%= link_to 'NEW GROUP', new_group_path, class: 'nav-link'%>
+      <%= link_to 'Groups', groups_path, class: 'nav-link'%>
+    </nav>
+  </div>
 
-<%= render 'form', group: @group %>
-
-<%= link_to 'Back', groups_path %>
+  <%= render 'form', group: @group %>
+</section>
