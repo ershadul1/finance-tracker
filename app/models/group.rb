@@ -16,6 +16,6 @@ class Group < ApplicationRecord
     return if picture.attached?
 
     picture.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'default-group.png')),
-                  filename: 'default-group.png', content_type: 'image/png')
+                   filename: 'default-group.png', content_type: 'image/png')
   end
 end
