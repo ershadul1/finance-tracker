@@ -23,6 +23,27 @@
     </div>
   </div>
 
+  <p class="total">Assigned Transactions</p>
+
+  <div class="d-flex flex-column  transaction-container">
+    <% @group.grouped_transactions.each do |transaction| %>
+      <div class="d-flex justify-between transaction">
+          <div class="d-flex">
+            <div>
+              <%= transaction_image(transaction) %>
+            </div>
+            <div class="d-flex flex-column justify-between pl-1">
+              <p class="capitalize"><%= truncate(transaction.name, :length => 25)  %></p>
+              <p class="date"><%= transaction.created_at.strftime("%d %b %Y") %></p>
+            </div>
+          </div>
+          <div>
+            <p class="bold">$<%= number_with_delimiter(transaction.amount, :delimiter => ',') %></p>
+          </div>
+      </div>
+    <% end %>
+  </div>
+
   <div class="new-item">
     <%= link_to 'EDIT GROUP', edit_group_path(@group), class: "new-item-btn"%>
   </div>
