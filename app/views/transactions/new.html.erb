@@ -1,5 +1,16 @@
-<h1>New Transaction</h1>
+<section class="form-page">
+  <div class="nav-container">
+    <nav class="nav-bar">
+      <%= link_to 'Profile', user_path(current_user.id), class: 'nav-link'%>
+      <%= link_to 'NEW TRANSACTION', new_transaction_path, class: 'nav-link'%>
+      <%= link_to 'Groups', groups_path, class: 'nav-link'%>
+    </nav>
+  </div>
 
-<%= render 'form', transaction: @transaction %>
+  <%= render 'form', transaction: @transaction %>
+</section>
 
-<%= link_to 'Back', transactions_path %>
+
+
+
+
