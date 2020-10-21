@@ -1,1 +1,24 @@
-<p><%= @user.email %></p>
+<section class="profile">
+  
+
+    <div class="profile-container">
+        <article>
+            <%= image_tag current_user.avatar.variant(resize_to_limit: [1000, 1000]) %>
+            <p><%= current_user.name %></p>
+        </article>
+        
+        
+        <%= link_to 'All my transactions', transactions_path %>
+
+        <%= link_to 'All my external transactions', external_path %>
+
+        <%= link_to 'All groups', groups_path %>
+
+
+        <%= link_to 'Edit user', edit_user_registration_path %>
+
+        <%= link_to 'Sign Out',destroy_user_session_path, method: :delete, data: {confirm: "Are you sure you want to exit?"}%> 
+    </div>
+
+
+</section>
