@@ -1,31 +1,20 @@
-<h1>Transactions</h1>
+<section>
+  <div class="nav-container">
+    <nav class="nav-bar">
+      <%= link_to 'Profile', user_path(current_user.id), class: 'nav-link'%>
+      <%= link_to 'TRANSACTIONS', transactions_path, class: 'nav-link'%>
+      <%= link_to 'Groups', groups_path, class: 'nav-link'%>
+    </nav>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <%= render 'shared/balance' %>
+  </div>
+  <%= render 'transactions' %>
 
-  <tbody>
-    <% @transactions.each do |transaction| %>
-      <tr>
-        <td><%= transaction.name %></td>
-        <td><%= transaction.amount %></td>
-        <% if transaction.group_id != nil %>
-        <% group_name = Group.find_by(id: transaction.group_id).name%>
-        <td><%= group_name %></td>
-        <% else %>
-        <td> Ungrouped </td>
-        <% end %>
-        <td><%= link_to 'Show', transaction %></td>
-        <td><%= link_to 'Edit', edit_transaction_path(transaction) %></td>
-        <td><%= link_to 'Destroy', transaction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <div class="new-item">
+    <%= link_to 'NEW TRANSACTION', new_transaction_path, class: "new-item-btn"%>
+  </div>
+</section>
 
-<br>
 
-<%= link_to 'New Transaction', new_transaction_path %>
+
+
