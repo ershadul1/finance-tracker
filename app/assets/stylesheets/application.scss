@@ -1,0 +1,289 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+:root {
+  --color-1: #3878c2;
+  --color-2: #5fb523;
+  --color-3: #434b54;
+  --color-4: #2f629e;
+  --color-5: #555e67;
+  --color-6: #979da3;
+}
+
+@font-face {
+  font-family: 'light';
+  src: url('/assets/Montserrat-Light');
+}
+
+@font-face {
+  font-family: 'bold';
+  src: url("/assets/Montserrat-Bold");
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(270deg, var(--color-1), var(--color-4));
+}
+
+/* display properties */
+
+.d-none {
+  display: none;
+}
+
+.d-block {
+  display: block;
+}
+
+.d-inline-block {
+  display: inline-block;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+/* flex properties */
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-around {
+  justify-content: space-around;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.align-end {
+  align-items: flex-end;
+}
+
+.flex-grow-1 {
+  flex-grow: 1;
+}
+
+.nav-container {
+  position: sticky;
+  top: 0;
+  width: 100%;
+}
+
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(180deg, var(--color-1), var(--color-4));
+  color: white;
+  font-size: 4vw;
+  padding: 2vw;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 20px;
+  text-align: center;
+  font-family: 'bold', sans-serif;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.group-image {
+  width: 17vw;
+  height: 17vw;
+}
+
+.date {
+  font-size: 3vw;
+}
+
+.pl-1 {
+  padding-left: 5vw;
+}
+
+.new-item {
+  position: sticky;
+  bottom: 0;
+  background: linear-gradient(0deg, var(--color-2), #88c85f);
+  width: 100%;
+  padding: 7px;
+  margin-top: 10px;
+}
+
+.new-item-btn {
+  margin: 10px 10px;
+  padding: 15px;
+  display: block;
+  text-decoration: none;
+  border: 1px solid white;
+  color: white;
+  text-align: center;
+  border-radius: 3px;
+  font-family: 'bold', sans-serif;
+}
+
+.delete-item {
+  /* position: sticky;
+  bottom: 0; */
+  background: linear-gradient(0deg, red, rgb(230, 81, 81));
+  width: 100%;
+  padding: 7px;
+  margin-top: 10px;
+}
+
+.color-green {
+  color: green;
+}
+
+.color-red {
+  color: red;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.box-link {
+  text-decoration: none;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.form-container {
+  min-height: 90vh;
+  background-color: #f1f3f2;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-fields {
+  margin: 10px 0;
+  height: 15vw;
+  border: 1px solid white;
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+  font-family: 'light', sans-serif;
+  color: var(--color-6);
+  font-size: 5vw;
+  padding: 10px;
+  width: 100%;
+}
+
+.radio-box {
+  margin-top: 20px;
+  font-family: 'light', sans-serif;
+}
+
+.radio-box input[type="radio"] {
+  opacity: 0;
+  position: fixed;
+  width: 0;
+}
+
+.radio-box label {
+  display: inline-block;
+  background-color: white;
+  padding: 10px 20px;
+  margin: 20px;
+  font-family: 'light', sans-serif;
+  color: var(--color-3);
+  font-size: 4vw;
+  border: 2px solid #444;
+  border-radius: 4px;
+}
+
+.radio-box input[type="radio"]:checked + label {
+  background-color: #bfb;
+  border-color: #4c4;
+}
+
+.custom-checkbox {
+  font-family: 'light', sans-serif;
+  color: var(--color-3);
+  font-size: 5vw;
+  padding: 10px;
+}
+
+.custom-checkbox input[type='checkbox'] {
+  -webkit-appearance: none;
+  padding: 15px;
+  background: white;
+  border-radius: 5px;
+  border: 2px solid #555;
+}
+
+.custom-checkbox input[type='checkbox']:checked {
+  background: var(--color-2);
+}
+
+.submit-btn {
+  width: 100%;
+  margin: 10px 0;
+  padding: 15px;
+  display: block;
+  text-decoration: none;
+  border: 1px solid white;
+  color: white;
+  background: linear-gradient(0deg, var(--color-2), #88c85f);
+  text-align: center;
+  border-radius: 3px;
+  font-family: 'bold', sans-serif;
+  font-size: 5vw;
+}
+
+.group-container {
+  padding: 10px;
+  font-size: 4vw;
+}
