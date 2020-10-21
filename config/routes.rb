@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   root to: "transactions#index"
   resources :transactions
   resources :groups
-  resources :users
+  resources :users, only: [:show]
   get "external" => 'transactions#external'
 end
