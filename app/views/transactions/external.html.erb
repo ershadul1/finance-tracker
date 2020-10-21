@@ -1,6 +1,20 @@
-<% @transaction.each do |trans|%>
+<section>
+  <div class="nav-container">
+    <nav class="nav-bar">
+      <%= link_to 'Profile', user_path(current_user.id), class: 'nav-link'%>
+      <%= link_to 'EXTERNAL TRANSACTIONS', external_path, class: 'nav-link'%>
+      <%= link_to 'Groups', groups_path, class: 'nav-link'%>
+    </nav>
 
-  <%= trans.name %><br>
+    <%= render 'shared/balance' %>
+  </div>
+  <%= render 'transactions' %>
+
+  <div class="new-item">
+    <%= link_to 'NEW TRANSACTION', new_transaction_path, class: "new-item-btn"%>
+  </div>
+</section>
 
 
-<% end %>
+
+
