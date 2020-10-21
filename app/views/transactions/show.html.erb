@@ -1,2 +1,34 @@
-<%= link_to 'Edit', edit_transaction_path(@transaction) %> |
-<%= link_to 'Back', transactions_path %>
+<section>
+  <div class="nav-container">
+    <nav class="nav-bar">
+      <%= link_to 'Profile', user_path(current_user.id), class: 'nav-link'%>
+      <%= link_to @transaction.name, transaction_path(@transaction.id), class: 'nav-link'%>
+      <%= link_to 'Back', transactions_path, class: 'nav-link'%>
+    </nav>
+  </div>
+
+  <div class="d-flex justify-between transaction">
+    <div class="d-flex">
+      <div>
+        <%= transaction_image(@transaction) %>
+      </div>
+      <div class="d-flex flex-column justify-between pl-1">
+        <p class="capitalize"><%= truncate(@transaction.name, :length => 25)  %></p>
+        <p class="date"><%= @transaction.created_at.strftime("%d %b %Y") %></p>
+      </div>
+    </div>
+    <div>
+      <p class="bold">$<%= number_with_delimiter(@transaction.amount, :delimiter => ',') %></p>
+    </div>
+  </div>
+
+  <div class="new-item">
+    <%= link_to 'EDIT TRANSACTION', edit_transaction_path(@transaction), class: "new-item-btn"%>
+  </div>
+
+  <div class="delete-item">
+    <%= link_to 'DELETE TRANSACTION', @transaction, method: :delete, data: { confirm: 'Are you sure you want to delete?' }, class: "new-item-btn" %>
+  </div>
+</section>
+
+
