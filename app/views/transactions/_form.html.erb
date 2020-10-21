@@ -19,7 +19,7 @@
         <%= form.number_field :amount, :step => "0.01", placeholder: "Amount", class: 'form-fields'%>
       </div>
 
-      <div class="d-flex flex-column group-container">
+      <div class="d-flex flex-column">
         <b>Groups:</b>
         <% Group.all.each do |group| %>
         <div class="custom-checkbox">
