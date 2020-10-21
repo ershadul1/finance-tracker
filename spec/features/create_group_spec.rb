@@ -20,6 +20,5 @@ RSpec.describe 'Creating a group process', type: :feature do
     click_button 'Create Group'
     sleep(3)
     expect(page).to have_content('FOOD')
-    
   end
 end
