@@ -1,6 +1,12 @@
-<h1>Editing Transaction</h1>
+<section class="form-page">
+  <div class="nav-container">
+    <nav class="nav-bar">
+      <%= link_to 'Profile', user_path(current_user.id), class: 'nav-link'%>
+      <%= link_to 'EDIT TRANSACTION', edit_transaction_path(@transaction), class: 'nav-link'%>
+      <%= link_to 'Back', transaction_path(@transaction), class: 'nav-link'%>
+    </nav>
+  </div>
 
-<%= render 'form', transaction: @transaction %>
+  <%= render 'form', transaction: @transaction %>
+</section>
 
-<%= link_to 'Show', @transaction %> |
-<%= link_to 'Back', transactions_path %>
