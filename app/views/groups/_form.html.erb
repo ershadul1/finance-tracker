@@ -1,19 +1,23 @@
 <%= form_with(model: group, local: true) do |form| %>
-  <% if group.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(group.errors.count, "error") %> prohibited this group from being saved:</h2>
+  <%= show_errors(group) %>
 
-      <ul>
-        <% group.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+  <div>
+    <div class="form-container actions">
+      <div>
+        <%= form.text_field :name, placeholder: "Group Name", class: 'form-fields' %>
+      </div>
+      
+      <div class="group-container">
+        Add picture:
+        <%= form.file_field :picture, class: 'form-fields'%><br>
+      </div>
+      
     </div>
-  <% end %>
 
-  <div class="actions">
-  Group Name:<br>
-    <%= form.text_field :name %><br>
-    <%= form.submit %>
+    <div class="new-item">
+      <%= form.submit class: 'submit-btn'%>
+    </div>
+
   </div>
+
 <% end %>
