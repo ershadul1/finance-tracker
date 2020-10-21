@@ -34,6 +34,7 @@
             </div>
             <div class="d-flex flex-column justify-between pl-1">
               <p class="capitalize"><%= truncate(transaction.name, :length => 25)  %></p>
+              <p class="capitalize"><%= transaction.author.name %></p>
               <p class="date"><%= transaction.created_at.strftime("%d %b %Y") %></p>
             </div>
           </div>
