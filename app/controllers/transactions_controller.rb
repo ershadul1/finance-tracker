@@ -2,7 +2,7 @@ class TransactionsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @transactions = current_user.transactions.includes(transaction_grouper: { picture_attachment: :blob })
+    @transaction = current_user.transactions.includes(transaction_grouper: { picture_attachment: :blob })
   end
 
   def show
@@ -69,12 +69,12 @@ class TransactionsController < ApplicationController
     all_transactions = current_user.transactions.pluck(:id)
     grouped = GroupsTransaction.where(grouped_transaction_id: all_transactions).pluck(:grouped_transaction_id)
     ungrouped = all_transactions - grouped
-    @transaction = current_user.transactions.where(id: ungrouped)
+    @transaction = current_user.transactions.where(id: ungrouped).includes([:transaction_grouper])
   end
 
   private
 
   def transaction_params
-    params.require(:transaction).permit(:name, :amount, :group_ids)
+    params.require(:transaction).permit(:name, :amount, :group_ids, :earning)
   end
 end
