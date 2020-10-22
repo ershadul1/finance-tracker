@@ -1,0 +1,24 @@
+<div class="total">
+  <div>
+    Total earned
+  </div>
+  <div class="bold color-green">
+    $<%= number_with_delimiter(current_user.transactions.total_earned, :delimiter => ',') %>
+  </div>
+</div>
+<div class="total">
+  <div>
+    Total spent
+  </div>
+  <div class="bold color-red">
+    $<%= number_with_delimiter(current_user.transactions.total_spent, :delimiter => ',') %>
+  </div>
+</div>
+<div class="total">
+  <div>
+    Balance
+  </div>
+  <div class="bold">
+    $<%= number_with_delimiter(current_user.transactions.balance, :delimiter => ',') %>
+  </div>
+ </div>

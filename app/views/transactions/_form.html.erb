@@ -1,0 +1,38 @@
+<%= form_with(model: transaction, local: true) do |form| %>
+  <%= show_errors(transaction) %>
+  <div>
+    <div class="form-container actions">
+      <div>
+        <%= form.text_field :name, placeholder: "Name", class: 'form-fields' %>
+      </div>
+      <div class="radio-box d-flex flex-column align-center">
+        <p>Transaction type:</p>
+        <div >
+          <%= form.radio_button :earning, true %>
+          <%= form.label :earning, "Earning", :value => "true"  %>
+          <%= form.radio_button :earning, false, :checked => true %>
+          <%= form.label :earning, "Spending", :value => "false" %>
+        </div>
+      </div>
+
+      <div>
+        <%= form.number_field :amount, :step => "0.01", placeholder: "Amount", class: 'form-fields'%>
+      </div>
+
+      <div class="d-flex flex-column">
+        <b>Groups:</b>
+        <% Group.all.each do |group| %>
+        <div class="custom-checkbox">
+          <%= check_box_tag "transaction[group_ids][]", group.id %>
+          <%= group.name %>
+        </div>
+        <% end %> 
+      </div>
+    </div>
+
+    <div class="new-item">
+      <%= form.submit class: 'submit-btn'%>
+    </div>
+
+  </div>
+<% end %>

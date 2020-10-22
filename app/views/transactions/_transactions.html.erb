@@ -1,0 +1,20 @@
+<div class="transaction-container d-flex flex-column">
+    <% @transaction.ordered_by_most_recent.each do |transaction| %>
+    <a class="box-link" href=<%= transaction_path(transaction.id) %> >
+      <div class="d-flex justify-between transaction">
+          <div class="d-flex">
+            <div>
+              <%= transaction_image(transaction) %>
+            </div>
+            <div class="d-flex flex-column justify-between pl-1">
+              <p class="capitalize"><%= truncate(transaction.name, :length => 25)  %></p>
+              <p class="date"><%= transaction.created_at.strftime("%d %b %Y") %></p>
+            </div>
+          </div>
+          <div>
+            <p class="bold">$<%= number_with_delimiter(transaction.amount, :delimiter => ',') %></p>
+          </div>
+      </div>
+    </a>
+    <% end %>
+</div>

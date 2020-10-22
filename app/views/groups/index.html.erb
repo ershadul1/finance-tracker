@@ -1,0 +1,38 @@
+<section>
+  <div class="nav-container">
+    <nav class="nav-bar">
+      <%= link_to 'Profile', user_path(current_user.id), class: 'nav-link'%>
+      <%= link_to 'ALL GROUPS', groups_path, class: 'nav-link'%>
+      <%= link_to 'Transactions', transactions_path, class: 'nav-link'%>
+    </nav>
+      <%= render 'shared/balance' %>
+  </div>
+  
+  <div class="group-container d-flex flex-column">
+    <% @groups.each do |group| %>
+      <a class="box-link" href=<%= group_path(group.id) %> >
+        <div class="d-flex justify-between group-card">
+            <div class="d-flex">
+              <div>
+                <%= group_image(group) %>
+              </div>
+              <div class="d-flex flex-column justify-between pl-1">
+                <p><%= truncate(group.name, :length => 25)  %></p>
+                <p class="date"><%= group.created_at.strftime("%d %b %Y") %></p>
+              </div>
+            </div>
+            <div class="d-flex flex-column justify-between">
+              <p class="color-green align-right">Earned: $<%= number_with_delimiter(group.grouped_transactions.group_earned(current_user.id), :delimiter => ',') %></p>
+              <p class="color-red align-right">Spent: $<%= number_with_delimiter(group.grouped_transactions.group_spent(current_user.id), :delimiter => ',') %></p>
+            </div>
+          </div>
+        </a>
+    <% end %>
+  </div>
+
+  <div class="new-item">
+    <%= link_to 'NEW GROUP', new_group_path, class: "new-item-btn"%>
+  </div>
+</section>
+
+

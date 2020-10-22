@@ -1,0 +1,43 @@
+<div class="nav-container">
+  <nav class="nav-bar">
+    <%= link_to 'FINANCE TRACKER',transactions_path, class: 'nav-link'%>
+    <%= link_to "Log In", new_session_path(resource_name), class: 'nav-link' %>
+  </nav>
+</div>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+   <div>
+    <div class="form-container actions">
+
+      <div class="field">
+        <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "Name", class: 'form-fields' %>
+      </div>
+
+
+      <div class="field">
+        <%= f.email_field :email, autocomplete: "email", placeholder: "Email", class: 'form-fields' %>
+      </div>
+      
+      <div class="field">
+        <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password", class: 'form-fields' %>
+      </div>
+      
+      
+      <div class="field">
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Password Confirmation", class: 'form-fields' %>
+      </div>
+
+      <div class="field">
+        <%= f.label :avatar %>
+        <%= f.file_field :avatar, class: 'form-fields' %>
+      </div>
+    </div>
+
+    <div class="actions new-item">
+      <%= f.submit "Sign Up" , class: 'submit-btn'%>
+    </div>
+    
+  </div>
+  
+<% end %>

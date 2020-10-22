@@ -1,0 +1,23 @@
+<%= form_with(model: group, local: true) do |form| %>
+  <%= show_errors(group) %>
+
+  <div>
+    <div class="form-container actions">
+      <div>
+        <%= form.text_field :name, placeholder: "Group Name", class: 'form-fields' %>
+      </div>
+      
+      <div>
+        Add picture:
+        <%= form.file_field :picture, class: 'form-fields'%><br>
+      </div>
+      
+    </div>
+
+    <div class="new-item">
+      <%= form.submit class: 'submit-btn'%>
+    </div>
+
+  </div>
+
+<% end %>

@@ -1,0 +1,24 @@
+<section class="profile">
+  
+
+    <div class="profile-container">
+        <article>
+            <%= user_image(current_user) %>
+            <p><%= current_user.name %></p>
+        </article>
+        
+        
+        <%= link_to 'All my transactions', transactions_path %>
+
+        <%= link_to 'All my external transactions', external_path %>
+
+        <%= link_to 'All groups', groups_path %>
+
+
+        <%= link_to 'Edit user', edit_user_registration_path %>
+
+        <%= link_to 'Sign Out',destroy_user_session_path, method: :delete, data: {confirm: "Are you sure you want to exit?"}%> 
+    </div>
+
+
+</section>

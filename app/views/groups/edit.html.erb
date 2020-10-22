@@ -1,0 +1,11 @@
+<section class="form-page">
+  <div class="nav-container">
+    <nav class="nav-bar">
+      <%= link_to 'Profile', user_path(current_user.id), class: 'nav-link'%>
+      <%= link_to 'EDIT GROUP', edit_group_path(@group), class: 'nav-link'%>
+      <%= link_to 'Back', group_path(@group), class: 'nav-link'%>
+    </nav>
+  </div>
+
+  <%= render 'form', group: @group %>
+</section>
