@@ -83,6 +83,7 @@ Users can upload profile images and group images. Also users can delete or updat
 * Clone the repository using `git clone https://github.com/ershadul1/finance-tracker.git`
 * cd in to the cloned directory `cd finance-tracker`
 * Switch to testing branch by `git checkout tracker-app`
+* You must have ImageMagick installed
 * Run `bundle install`
 * Run `rspec`
 
