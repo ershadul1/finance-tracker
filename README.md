@@ -3,7 +3,7 @@
 
 ## Project Description
 
-This is an Finance tracker app. Users can create transactions and groups. The transaction can have groups. Also a transaction can be a earning transaction or a spending transaction. That means users can track their earning and spending at the same time. 
+This is a Finance tracker app. Users can create transactions and groups. The transaction can have groups. Also a transaction can be a earning transaction or a spending transaction. That means users can track their earning and spending at the same time. 
 
 Users can see their total earning and spending. And also a balance is calculated using earning and spending. So this app will help a user to record their total finance.
 
